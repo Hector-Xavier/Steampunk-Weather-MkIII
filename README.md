@@ -35,20 +35,20 @@ will have a forecast. The data feed is provided by Aviation Weather GOV -
  
 Built using: 
 
-  RJTextEd Advanced Editor  https://www.rj-texted.se/ 
-  Adobe Photoshop CS ver 8.0 (2003)  https://www.adobe.com/uk/products/photoshop/free-trial-download.html  
-  Yahoo widgets SDK: runtime, debugger and documentation
+	RJTextEd Advanced Editor  https://www.rj-texted.se/ 
+	Adobe Photoshop CS ver 8.0 (2003)  https://www.adobe.com/uk/products/photoshop/free-trial-download.html  
+	Yahoo widgets SDK: runtime, debugger and documentation
   
 Tested on :
 
-  ReactOS 0.4.14 32bit on virtualBox    
-  Windows 7 Professional 32bit on Intel    
-  Windows 7 Ultimate 64bit on Intel    
-  Windows 7 Professional 64bit on Intel    
-  Windows XP SP3 32bit on Intel    
-  Windows 10 Home 64bit on Intel    
-  Windows 10 Home 64bit on AMD    
-  Windows 11 64bit on Intel 
+	ReactOS 0.4.14 32bit on virtualBox    
+	Windows 7 Professional 32bit on Intel    
+	Windows 7 Ultimate 64bit on Intel    
+	Windows 7 Professional 64bit on Intel    
+	Windows XP SP3 32bit on Intel    
+	Windows 10 Home 64bit on Intel    
+	Windows 10 Home 64bit on AMD    
+	Windows 11 64bit on Intel 
    
  Dependencies:
  
