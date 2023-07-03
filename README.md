@@ -16,7 +16,7 @@ full explanation of all the buttons, windows is shown. The top left window is
 the current power in digital form. Hovering over any control should supply a 
 pop-up explaining each function.
 
-![location_search_help](https://github.com/yereverluvinunclebert/Steampunk-Weather-MkIII/assets/2788342/6027f17f-54b2-437a-9167-b911e0bc9cda)
+![weather-gauge-metal-404](https://github.com/yereverluvinunclebert/Steampunk-Weather-MkIII/assets/2788342/a6054634-6a21-4d75-b31a-48e87e426c59)
 
 Right clicking will bring up a menu of options. Double-clicking on the widget 
 will cause a personalised Windows application to fire up. The first time you run 
