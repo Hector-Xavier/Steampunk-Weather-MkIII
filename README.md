@@ -9,7 +9,7 @@ Apple Mac.
 A Steampunk Weather widget. This Weather widget is a simple combined Weather 
 gauge. Functional and gorgeous at the same time.
 
-![prt_220x223_1407274381](https://github.com/yereverluvinunclebert/Steampunk-Weather-MkIII/assets/2788342/07cf444b-9558-40c7-8bf3-2b147a25594a)
+![location_search_help](https://github.com/yereverluvinunclebert/Steampunk-Weather-MkIII/assets/2788342/1e9f75c8-0d2c-4132-ab8a-b36b29150f9c)
 
 To find out how the widget operates, simply right click and select Help and a 
 full explanation of all the buttons, windows is shown. The top left window is 
