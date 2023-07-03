@@ -39,9 +39,21 @@ weather data. You enter your local town name and if it has an airfield then it
 will have a forecast. The data feed is provided by Aviation Weather GOV -
  
 	aviationweather.gov/  
+	
+The new widget gives windspeed and direction, it reports the cloud layers, 
+it handles more exotic forms of weather but most important of all uses a feed 
+from a source that is unlikely to go offline for long periods. It uses the feed 
+from aviationweather.gov a US government department. The feed is decoded METAR 
+in XML form so it is easy enough to use. It is also free and does not require an 
+API. The search for metar codes is performed offline using a local list of metar 
+stations in a static data file. There are currently 10,000 Metar locations and 
+so a search using a local file is much quicker than an online one.
+ 
+The new widget also has a pop-up window that summarises weather information in 
+a text form in addition to the image display on the main gauge. 
  
 Here is a Youtube video of the Yahoo Weather widget shown in all its steampunk 
-functionality, I think you'll find it is fascinating as well as useful. I do 
+functionality, I think you will find it is fascinating as well as useful. I do 
 hope so.
 
 https://www.youtube.com/watch?v=Z_IO5Q2RSs0
