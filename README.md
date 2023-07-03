@@ -1,5 +1,7 @@
 # Steampunk-Weather-MkIII
-  
+
+![weatherGaugeSteampunk](https://github.com/yereverluvinunclebert/Steampunk-Weather-MkIII/assets/2788342/315839f7-163a-4448-afd2-47f60fa499fa)
+
 Steampunk Desktop Weather widget, written in Javascript and XML for the Yahoo 
 Widget (Konfabulator) Engine. Created for XP, Vista, Win7, 8, 10+ as well as the 
 Apple Mac.
@@ -7,11 +9,16 @@ Apple Mac.
 A Steampunk Weather widget. This Weather widget is a simple combined Weather 
 gauge. Functional and gorgeous at the same time.
 
+This Steampunk Weather Widget is loosely based on the Digistation widget written, enhanced and steampunked by Dean Beedell. Displays local air pressure, temperature and humidity, as well as the general weather outlook in hundreds of cities around the world. The widget has been given a completely new steampunk skin and loads of new functionality.
+
+![location_search_help](https://github.com/yereverluvinunclebert/Steampunk-Weather-MkIII/assets/2788342/1e9f75c8-0d2c-4132-ab8a-b36b29150f9c)
+
 To find out how the widget operates, simply right click and select Help and a 
 full explanation of all the buttons, windows is shown. The top left window is 
 the current power in digital form. Hovering over any control should supply a 
 pop-up explaining each function.
 
+![weather-gauge-metal-404](https://github.com/yereverluvinunclebert/Steampunk-Weather-MkIII/assets/2788342/a6054634-6a21-4d75-b31a-48e87e426c59)
 
 Right clicking will bring up a menu of options. Double-clicking on the widget 
 will cause a personalised Windows application to fire up. The first time you run 
@@ -33,6 +40,10 @@ will have a forecast. The data feed is provided by Aviation Weather GOV -
  
 	aviationweather.gov/  
  
+Here is a Youtube video of the Yahoo Weather widget shown in all its steampunk functionality, I think you'll find it is fascinating as well as useful. I do hope so.
+
+https://www.youtube.com/watch?v=Z_IO5Q2RSs0
+
 Built using: 
 
 	RJTextEd Advanced Editor  https://www.rj-texted.se/ 
@@ -95,7 +106,7 @@ Tested on :
  menubar item should appear. Widgets can then be started from the menubar or by 
  double-clicking on the KON file in the usual way.
  
-
+![weather-gauge-help4](https://github.com/yereverluvinunclebert/Steampunk-Weather-MkIII/assets/2788342/935f2ade-db07-4a80-9eea-f2b3baed6d48)
 
  LICENCE AGREEMENTS:
  
