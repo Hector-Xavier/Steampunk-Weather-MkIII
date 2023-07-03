@@ -1,5 +1,7 @@
 # Steampunk-Weather-MkIII
-  
+
+![weatherGaugeSteampunk](https://github.com/yereverluvinunclebert/Steampunk-Weather-MkIII/assets/2788342/315839f7-163a-4448-afd2-47f60fa499fa)
+
 Steampunk Desktop Weather widget, written in Javascript and XML for the Yahoo 
 Widget (Konfabulator) Engine. Created for XP, Vista, Win7, 8, 10+ as well as the 
 Apple Mac.
@@ -7,11 +9,14 @@ Apple Mac.
 A Steampunk Weather widget. This Weather widget is a simple combined Weather 
 gauge. Functional and gorgeous at the same time.
 
+![prt_220x223_1407274381](https://github.com/yereverluvinunclebert/Steampunk-Weather-MkIII/assets/2788342/07cf444b-9558-40c7-8bf3-2b147a25594a)
+
 To find out how the widget operates, simply right click and select Help and a 
 full explanation of all the buttons, windows is shown. The top left window is 
 the current power in digital form. Hovering over any control should supply a 
 pop-up explaining each function.
 
+![location_search_help](https://github.com/yereverluvinunclebert/Steampunk-Weather-MkIII/assets/2788342/6027f17f-54b2-437a-9167-b911e0bc9cda)
 
 Right clicking will bring up a menu of options. Double-clicking on the widget 
 will cause a personalised Windows application to fire up. The first time you run 
@@ -95,7 +100,7 @@ Tested on :
  menubar item should appear. Widgets can then be started from the menubar or by 
  double-clicking on the KON file in the usual way.
  
-
+![weather-gauge-help4](https://github.com/yereverluvinunclebert/Steampunk-Weather-MkIII/assets/2788342/935f2ade-db07-4a80-9eea-f2b3baed6d48)
 
  LICENCE AGREEMENTS:
  
