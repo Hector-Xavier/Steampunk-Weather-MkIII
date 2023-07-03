@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+        <name>Steampunk Weather Widget MKIII</name>
+	<version>3.0.1</version>
+	<platform minVersion = "4.0" />
+	<identifier>eeaca540-9c55-11e0-ae24-001B38DD5A8B</identifier>
+	<image usage="dock" src="Resources/images/dock_icon.png"/>
+	<image usage="security" src="Resources/security-weather-widget.png"/>
+	<author name="Dean Beedell" organization="LightQuick" href="http://www.lightquick.co.uk"/>
+	<copyright>(c)2011 LightQuick</copyright>
+	<description>Displays local air pressure, temperature and humidity, as well as the general weather outlook in hundreds of cities around the world using standard metar codes.</description>
+	<security>
+          <filesystem>full</filesystem>
+          <http>all</http>
+          <applescript>true</applescript>
+          <command>true</command>
+          <hotkey>false</hotkey>
+	</security>
+</metadata>

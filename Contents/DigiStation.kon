@@ -1,0 +1,583 @@
+<?xml version="1.0" encoding="utf-8"?>
+<widget minimumVersion="4.0">
+<!--
+Steampunk weather widget 3.0.1
+Originally inspired by: Bogdan Irimia bogdan@digitair.ro (Bogdan)
+Steampunked by: Dean Beedell with serious code suggestions by Harry Whitfield (original code by kind permission of Bogdan Irimia)
+Dean.beedell@lightquick.co.uk
+
+-->
+
+	<settings>
+		<setting name="debug" value="off"/>
+	</settings>
+
+	<about-box>
+		<image>Resources/aboutus.png</image>
+		<about-version font="Times New Roman" color="#000000" vOffset="202" hOffset="160" size="11">
+			<shadow color="#ffffff" vOffset="1" hOffset="0"/>
+		</about-version>
+		<about-text font="Times New Roman" color="#000000" vOffset="202" hOffset="120" url="http://www.lightquick.co.uk" data="Version " size="11">
+			<shadow color="#ffffff" vOffset="1" hOffset="0"/>
+		</about-text>
+	</about-box>
+
+	<window visible="false" name="mainWindow" width="710" title="Steampunk Weather Widget" height="560" shadow="false">
+                <image>
+ 		       <name>helpknob</name>
+                       <src>Resources/help-knob.png</src>
+                       <hOffset>0</hOffset>
+                       <vOffset>0</vOffset>
+                        <onMouseDown> <![CDATA[
+                                      togglesound();
+                        // ]]> </onMouseDown>
+		</image>
+ 	        <image>
+ 		       <name>soundlamp</name>
+                       <src>Resources/green.png</src>
+                       <hOffset>25</hOffset>
+                       <vOffset>26</vOffset>
+                        <onMouseDown> <![CDATA[
+                                      togglesound();
+                        // ]]> </onMouseDown>
+		</image>
+
+                <image>
+ 		       <name>resizingknob</name>
+                       <src>Resources/resizing-knob.png</src>
+                       <hOffset>0</hOffset>
+                       <vOffset>0</vOffset>
+                        <onMouseDown> <![CDATA[
+                                      toggleanimation();
+                        // ]]> </onMouseDown>
+		</image>
+                <image>
+ 		       <name>animationlamp</name>
+                       <src>Resources/green.png</src>
+                       <hOffset>252</hOffset>
+                       <vOffset>26</vOffset>
+                        <onMouseDown> <![CDATA[
+                                      toggleanimation();
+                        // ]]> </onMouseDown>
+
+		</image>
+		<image src="Resources/clock-surround.png">
+		        <name>clocksurround</name>
+		        <hOffset>3</hOffset>
+		        <vOffset>3</vOffset>
+		        <visible>true</visible>
+    	        </image>
+
+               	<image>
+ 		       <name>chain2</name>
+                       <src>Resources/chain.png</src>
+                       <hOffset>22</hOffset>
+                       <vOffset>166</vOffset>
+                        <onMouseDown> <![CDATA[
+                              if (preferences.soundpref.value == "enable") {play(clunk,false)}
+                              if (preferences.animationpref.value == "enable")
+                              {
+                                 chain2.voffset = chain2.voffset + 20;
+                                 sleep (100);
+                              }
+                              showWidgetPreferences();
+                             //toggle24hrclock();
+                              if (preferences.animationpref.value == "enable") {
+                                  sleep(100);
+                                  chain2.voffset = chain2.voffset - 20;
+                              }
+                        // ]]> </onMouseDown>
+
+		</image>
+
+               	<image>
+ 		       <name>chain</name>
+                       <src>Resources/chain.png</src>
+                       <hOffset>260</hOffset>
+                       <vOffset>166</vOffset>
+                        <onMouseDown> <![CDATA[
+                              if (preferences.soundpref.value == "enable") {play(clunk,false)}
+                              if (preferences.animationpref.value == "enable")
+                              {
+                                 chain.voffset = chain.voffset + 20;
+                                 sleep (100);
+                              }
+                              if (preferences.soundpref.value == "enable") {play(pop,false)}
+                              if (weatherglasshelp.visible === true)
+                              {
+                                 weatherglasshelp.visible=false;
+                                 imagelinktransparency.visible=false;
+                              }
+                              else
+                              {
+                                 weatherglasshelp.visible=true;
+                                 imagelinktransparency.visible=true;
+                              }
+                              if (preferences.animationpref.value == "enable") {
+                                  sleep(100);
+                                  chain.voffset = chain.voffset - 20;
+                              }
+                        // ]]> </onMouseDown>
+
+		</image>
+                <image voffset="109" name="hinge" hoffset="267" src="Resources/hinge.png" visible="true"/>
+                <image voffset="109" name="hinge2" hoffset="26" src="Resources/hinge2.png" visible="true"/>
+
+	        <image>
+ 		       <name>weatherglasshelp</name>
+                       <src>Resources/weather-glass-help.png</src>
+                       <hOffset>260</hOffset>
+                       <vOffset>10</vOffset>
+                       <visible>false</visible>
+                       <onMouseDown> <![CDATA[
+                                   if (preferences.soundpref.value == "enable") {play(pop,false)}
+                                   resizeHelpWindow();
+
+                                    // ]]> 
+                       </onMouseDown>
+                       <onMouseUp> <![CDATA[
+                                  widgetHelpTimer.ticking = true;
+                                  if (preferences.soundpref.value === "enable") {
+                                     //        play(buzzer, false);
+                                     play(TingingSound, false);
+                                     play(electricDrone, false);
+      	                          }
+                        // ]]> </onMouseUp>
+		</image>
+
+	        <image>
+ 		       <name>imagelinktransparency</name>
+                       <src>Resources/image-link-transparency.png</src>
+                       <hOffset>310</hOffset>
+                       <vOffset>210</vOffset>
+                       <visible>true</visible>
+                       <onMouseDown> <![CDATA[
+                              if (preferences.soundpref.value == "enable") {play(pop,false)}
+                              widgethelp();
+                        // ]]> </onMouseDown>
+		</image>
+
+	        <image>
+ 		       <name>clock_hand</name>
+                       <src>Resources/clock_hand.png</src>
+                       <hOffset>152</hOffset>
+                       <vOffset>149</vOffset>
+                       <width>290</width>
+                       <height>290</height>
+                       <visible>true</visible>
+                       <hRegistrationPoint>145</hRegistrationPoint>
+                       <vRegistrationPoint>145</vRegistrationPoint>
+                       <onMouseDown> <![CDATA[
+                              if (preferences.soundpref.value == "enable") {play(pop,false)}
+                              rotateHand();
+                        // ]]> 
+                        </onMouseDown>
+		</image>
+
+		<image>
+                        <voffset>3</voffset>
+                        <name>bk</name>
+                        <hoffset>3</hoffset>
+                        <src>Resources/scale.png</src>
+                </image>
+                <image opacity="0" vOffset="164" name="fahrenheit" src="Resources/fahrenheit.png" hOffset="70"/>
+                <image opacity="0" vOffset="164" name="thermometerhole" src="Resources/thermometerhole.png" hOffset="70"/>
+                <image opacity="0" vOffset="164" name="thermometerpart1" src="Resources/thermometerpart1.png" hOffset="70"/>
+                <image opacity="0" vOffset="164" name="thermometerpart2" src="Resources/thermometerpart2.png" hOffset="70"/>
+                <image opacity="0" vOffset="164" name="thermometerpart3" src="Resources/thermometerpart3.png" hOffset="70"/>
+		<image vOffset="110" name="icon" src="Resources/icons/globe.png" hOffset="120"/>
+		<image vOffset="170" name="windIcon" visible="true" src="" hOffset="70"/>
+		<image vOffset="110" name="fogIcon" visible="true" src="" hOffset="120"/>
+		<image vOffset="110" name="exoticIcon" visible="true" src="" hOffset="120"/>
+		<image vOffset="110" name="showersIcon" visible="true" src="" hOffset="120"/>
+		<image hRegistrationPoint="100" opacity="255" rotation="180" vRegistrationPoint="100" vOffset="150" name="ac_presiune" src="Resources/ac.png" hOffset="150"/>
+		<image hRegistrationPoint="100" opacity="255" rotation="180" vRegistrationPoint="100" vOffset="150" name="ac_manual" src="Resources/ac_manual.png" hOffset="150"/>
+		<image hRegistrationPoint="40" zOrder="3" vRegistrationPoint="40" vOffset="203" name="temperature" src="Resources/point.png" hOffset="108"/>
+		<image hRegistrationPoint="40" zOrder="3" vRegistrationPoint="40" vOffset="203" name="humidity" src="Resources/point.png" hOffset="190"/>
+               	<image src="Resources/knob.png" name="temperatureknob" hOffset="107" vOffset="230"  onMouseDown="togglecentigradefahrenheit();"/>
+               	<image src="Resources/knob.png" name="popupknob" hOffset="137" vOffset="210"  onMouseDown="togglePopUp();"/>
+		<image vOffset="230" name="logo" src="Resources/logo.png" hOffset="135"/>
+
+               	<image src="Resources/knob.png">
+		        <name>clockknob</name>
+		        <hOffset>165</hOffset>
+		        <vOffset>230</vOffset>
+                        <onMouseDown> <![CDATA[
+                              searchWindowVisible();
+                        // ]]> </onMouseDown>
+    	        </image>
+		<image
+			src		= "Resources/pin.png"
+			name		= "pin"
+			hOffset		= "20 "
+			vOffset		= "101 "
+			opacity		= "0"
+		/>
+		<image
+			src		= "Resources/weather-gauge-inlinehelp.png"
+			name		= "inlinehelp"
+			hoffset         = "-67"
+			voffset         = "-67"
+			visible     = "false"
+		/>
+		<image>
+ 		       <name>busyBlur</name>
+                       <src>Resources/busyBlur.png</src>
+                       <hOffset>230</hOffset>
+                       <vOffset>200</vOffset>
+                       <zorder>24</zorder>
+                       <visible>true</visible>
+		</image>
+
+                <image>
+                       <name>busy</name>
+                       <src>Resources/busy-F1-32x32x24.png</src>
+                       <hOffset>230</hOffset>
+                       <vOffset>200</vOffset>
+                       <zorder>25</zorder>
+                       <visible>true</visible>
+                </image>
+
+                <image>
+                       <name>preceding</name>
+                       <src>Resources/preceding-button.png</src>
+                       <hOffset>170</hOffset>
+                       <vOffset>193</vOffset>
+                       <zorder>25</zorder>
+                       <visible>true</visible>
+                       <opacity>1</opacity>
+                </image>
+
+                <image>
+                       <name>following</name>
+                       <src>Resources/following-button.png</src>
+                       <hOffset>275</hOffset>
+                       <vOffset>192</vOffset>
+                       <zorder>25</zorder>
+                       <visible>true</visible>
+                       <opacity>1</opacity>
+                </image>
+
+	</window>
+
+
+
+	<window visible="true" name="busyWindow" width="60" height="60" shadow="false" zorder = "100">
+
+	</window>
+
+	<window visible="false" name="infoWindow" width="617" height="448" shadow="false">
+		<frame name="frame" hOffset = "50" vOffset = "50">
+
+			<image name="textBckgnd"
+				src="resources\background.png"
+				opacity="255" />
+
+			<textarea name="tooltipText"
+				height="210"
+				width="150"
+				size="8"
+				scrollbar="false"
+				bgColor="#060606"
+				bgOpacity="0"
+				color="#000000"
+				editable="0"
+				vOffset="57"
+				hOffset="45"
+				style="text-align:center"
+                                font = "courier new"  />
+		</frame>
+    	        <frame
+			name		= "clock_frame"
+			width		= "200"
+			height		= "250"
+			hOffset		= "75"
+			vOffset		= "165"
+			visible		= "true"
+			hRegistrationPoint = "43"
+			vRegistrationPoint = "66"
+			rotation	= "5"
+			tooltip		= ""
+		/>
+
+	</window>
+
+	<window visible="false" name="searchWindow" width="331" title="Search" height="269" shadow="false">
+		<image src="Resources/search/background.png" />
+		<image vOffset="51" name="imgBtnSearch" src="Resources/search/txtsearch.png" hOffset="63" opacity = "255"/>
+		<image vOffset="101" name="imgCmbResults" src="" hOffset="65" opacity = "100"/>
+		<text vOffset="68" name="txtSearchCity" style="font-family: 'Times New Roman'; font-size: 14px; color: #000000;" hOffset="70"/>
+		<text vOffset="120" name="txtSearching" style="font-family: 'Times New Roman'; font-size: 14px; color: #000000;" hOffset="70"/>
+		<textarea lines="1" vOffset="70" name="txt_search" data="arse" style="font-family: 'Times New Roman'; font-size: 14px; color: #000000;" width="160" hOffset="70" bgColor="#FFFBA9" bgOpacity="128" editable="true" size="14"/>
+		<textarea lines="1" vOffset="125" name="txt_results"  style="font-family: 'Times New Roman'; font-size: 14px; color: #000000;" width="160" hOffset="70" bgColor="#9EFFA1" bgOpacity="0" editable="false" size="14"/>
+		<image vOffset="154"  name="btn_ok" src="Resources/search/ok.png" hOffset="63"/>
+		<image vOffset="154"  name="btn_pushed" src="Resources/search/bellpushed.png" hOffset="63" visible = "false"/>
+                <image vOffset="153"  name="btn_cancel" src="Resources/search/cancel.png" width="40" hOffset="197" height="40"/>
+                <image vOffset="11"  name="slider" src="Resources/search/frontslider.png" hOffset="117" width="103" height="27"/>
+	        <image vOffset="12"  name="knob2" src="Resources/search/knob2.png" hOffset="130" width="16" height="21"/>
+	</window>
+
+	<timer onTimerFired="updateTooltip();" name="tooltip_timer" ticking="true" interval="120"/>
+
+	<timer onTimerFired="updateTime();" name="clockTimer" ticking="true" interval="240"/>
+
+        <action trigger="onKeyDown">
+              <![CDATA[
+                if (system.event.keyCode==116) {
+                    if (debug == 1) { print("%pressing "+system.event.keyCode)};
+                    reloadWidget();
+                }
+               ]]>
+        </action>
+
+	<action trigger="onload">
+		<![CDATA[
+		include("vitality.js");
+		include("digistation.js");
+		include("metar.js");
+		include("functions.js");
+		include("sunRiseAndSet.js");
+                include("Resources/Licence/Licence.js");
+                include("SPclock.js");
+		startup();
+		]]>
+	</action>
+
+	<action trigger="onDockOpened">
+		<![CDATA[
+		if (gCity && gTemp) {
+			buildVitality("vitality.png", icon, gCity, gTemp, "\u00B0");
+		}
+		]]>
+	</action>
+
+	<action trigger="onWakeFromSleep">
+		<![CDATA[
+		sleep(7000);
+                 if (preferences.foreCastType.value == "metar") {
+                    getData(preferences.icao.value);
+                 } else {
+                    getTafData(preferences.icao.value);
+                 }              
+		updateTooltip();
+		updateTime();
+		]]>
+	</action>
+
+	<preferenceGroup name="fontGrp" title="Pop-up Panel" icon="Resources/font.png" />
+
+	<preferenceGroup name="settings" icon="Resources/settings.png" title="Settings"/>
+
+	<preferenceGroup name="language" icon="Resources/icon.png" title="language"/>
+
+	<preferenceGroup name="metar" icon="Resources/metar.png" title="metar"/>
+        <preference hidden="false" description="Shows the weather pop up panel as an alternative to the tooltips." name="popupPanel" group="fontGrp" title="Weather Pop-up:" defaultValue="enabled" type="popup">
+            <option>enabled</option>
+            <option>disabled</option>
+        </preference>
+        <preference hidden="false" description="Shows the weather panel permanently." name="permanentPanel" group="fontGrp" title="Weather Panel:" defaultValue="enabled" type="popup">
+            <option>enabled</option>
+            <option>disabled</option>
+        </preference>
+        <preference hidden="false" description="Enables the mini clock and other bits on the weather pop-up panel." name="miniClock" group="fontGrp" title="Mini Clock:" defaultValue="enabled" type="popup">
+            <option>enabled</option>
+            <option>disabled</option>
+        </preference>
+        <preference hidden="false" description="Enter the name of any of your installed fonts - will be used in the information pop-up box that appears when you double-click on the moon. By default will use Courier New. A very nice font to use here is the Chanticleer Roman font at 12pt size." name="popupPanelFont" group="fontGrp" title="Pop-up Font:" defaultValue="Courier New" type="font"/>
+        <preference description="Choose the font size of the popup text above." name="popupPanelFontSizePref" group="fontGrp" title="Pop-up panel text size:" defaultValue="11" type="popup">
+            <option>9</option>
+            <option>10</option>
+            <option>11</option>
+            <option>12</option>
+            <option>13</option>
+            <option>14</option>
+            <option>16</option>
+            <option>18</option>
+            <option>20</option>
+            <option>22</option>
+            <option>24</option>
+            <option>26</option>
+            <option>28</option>
+            <option>32</option>
+            <option>36</option>
+        </preference>
+
+	<preference hidden="false" description="This is the polling interval by which the widget attempts to get the data from the source (default 600 seconds or ten minutes). The metar source provider and the location itself determines when the data is actually provided - someone has to do a forecast." name="intervalValuePref" title="Data Timer:" defaultValue="600" minLength="300" maxLength="4800" ticks="30" type="slider">
+		<tickLabel>300</tickLabel>
+		<tickLabel>2250</tickLabel>
+		<tickLabel>4800</tickLabel>
+  </preference>
+
+  <preference hidden="false" description="Enables the mini clock and other bits on the weather pop-up panel." name="miniClock" group="fontGrp" title="Mini Clock:" defaultValue="enabled" type="popup">
+      <option>enabled</option>
+      <option>disabled</option>
+  </preference>
+
+
+	<preference hidden="false" description="Disable this to ignore any failures to connect to the weather server and prevent the alerts." name="alertPref" title="Alerts:" defaultValue="enabled" type="popup">
+            <option>enabled</option>
+            <option>disabled</option>
+</preference>
+
+        <preference hidden="false" description="Check this box if you want the widget to 'ting' each time the data is successfully collected." name="getDataPingPref" title="Ting when collecting data" defaultValue="1" type="checkbox"/>
+
+	<preference hidden="false" description="" name="widgetLockPref" title="Widget Locked:" description="This option locks the widget in place on your desktop, a locking pin will appear on the rim to show the widget is locked. 1 is locked." defaultValue="0" type="popup">
+		<option>1</option><optionValue>1</optionValue>
+		<option>0</option><optionValue>0</optionValue>
+	</preference>
+
+        <preference hidden="true" description="Check this box if you don't want to see the Licence Conditions again." name="licenceHide" title="Don't Show Licence Again" defaultValue="0" type="checkbox"/>
+
+        <preference hidden="true" description="" name="pinhOffsetPref" title="String:" defaultValue="" type="text"/>
+	<preference hidden="true" description="" name="pinvOffsetPref" title="String:" defaultValue="" type="text"/>
+
+	<preference hidden="true" name="lastPres" defaultValue="760"/>
+	<preference hidden="true" name="lastUpdated" defaultValue="0"/>
+	<preference hidden="true" name="lastTooltip" defaultValue=""/>
+	<preference hidden="true" name="CC" defaultValue="EN"/>
+	<preference hidden="true" name="Country" defaultValue="United Kingdom"/>
+	<preference hidden="true" name="icao" defaultValue="EGLL"/>
+	<preference hidden="true" name="City" defaultValue="London Heathrow"/>
+
+	<preference name="tempUnit" group="settings" title="Temperature unit" type="popup"
+                description="Select the temperature unit. The default is the celsius scale or centigrade.">
+		<option>Celsius</option>
+		<optionValue>C</optionValue>
+		<option>Fahrenheit</option>
+		<optionValue>F</optionValue>
+		<group>metar</group>
+		<defaultValue>C</defaultValue>
+	</preference>
+
+	<preference name="imperialMetricPref" title="Metric or Imperial" type="popup"
+                description="Select the cloud height unit. The default is the imperial (ft). This won't change knots to km/h as knots are not an imperial measurement.">
+		<option>Imperial</option>
+		<optionValue>imperial</optionValue>
+		<option>Metric</option>
+		<optionValue>metric</optionValue>
+		<group>metar</group>
+		<defaultValue>imperial</defaultValue>
+	</preference>
+	<preference name="maxWidthPref" group="settings" title="Widget Size" type="popup" maxlength = "200" minlength = "20" ticks = "18"
+		defaultValue="100" description="Changes the total size of the weather gauge. Vary the percentage and the whole gauge will alter in size.">
+		<option>150%</option>
+		<optionValue>150</optionValue>
+		<option>140%</option>
+		<optionValue>140</optionValue>
+		<option>130%</option>
+		<optionValue>130</optionValue>
+		<option>120%</option>
+		<optionValue>120</optionValue>
+		<option>110%</option>
+		<optionValue>110</optionValue>
+		<option>100%</option>
+		<optionValue>100</optionValue>
+		<option>90%</option>
+		<optionValue>90</optionValue>
+		<option>80%</option>
+		<optionValue>80</optionValue>
+		<option>70%</option>
+		<optionValue>70</optionValue>
+		<option>60%</option>
+		<optionValue>60</optionValue>
+		<option>50%</option>
+		<optionValue>50</optionValue>
+		<option>40%</option>
+		<optionValue>40</optionValue>
+		<option>30%</option>
+		<optionValue>30</optionValue>
+		<option>20%</option>
+		<optionValue>20</optionValue>
+                <option>10%</option>
+		<optionValue>10</optionValue>
+                <option>5%</option>
+		<optionValue>5</optionValue>
+	</preference>
+
+	<preference name="clockpref">
+		<title>Clock Style</title>
+		<type>popup</type>
+		<option>gold</option>
+		<optionValue>gold</optionValue>
+		<option>red</option>
+		<optionValue>red</optionValue>
+		<option>metal</option>
+		<optionValue>metal</optionValue>
+                <option>wind</option>
+                <optionValue>wind</optionValue>
+                <option>disabled</option>
+                <optionValue>disabled</optionValue>
+                <title>24hr Clock Setting:</title>
+		<description>Change the appearance of the 24hr clock. Set to WIND to display the wind direction, any other selection shows time.</description>
+		<group>settings</group>
+	</preference>
+
+	<preference name="soundpref">
+		<title>Sound Control:</title>
+		<type>popup</type>
+		<option>enable</option>
+		<optionValue>enable</optionValue>
+		<option>disable</option>
+		<optionValue>disable</optionValue>
+		<description>Enable or disable sound as you require.</description>
+		<group>settings</group>
+	</preference>
+
+	<preference name="animationpref">
+		<title>Animation Control</title>
+		<type>popup</type>
+		<option>enable</option>
+		<optionValue>enable</optionValue>
+		<option>disable</option>
+		<optionValue>disable</optionValue>
+		<description>Enable or disable animation as you require.</description>
+		<group>settings</group>
+	</preference>
+
+	<preference name="langpref">
+		<title>Language Selection</title>
+		<type>popup</type>
+		<option>default</option>
+		<optionValue>default</optionValue>
+		<option>alternative</option>
+		<optionValue>alternative</optionValue>
+		<description>Add your own language here. Add the two letter language code below.</description>
+		<group>language</group>
+	</preference>
+
+	<preference name="langpref2">
+		<title>Language Code</title>
+		<defaultValue>ro</defaultValue>
+		<description>Do not change this code unless you have a corresponding language file. For those languages that are not supported by the YWE - add your own language file below the Resources folder and enter your two letter language code above. We supply a Romanian translation (ro).</description>
+		<group>language</group>
+	</preference>
+
+	<preference name="metarpref">
+		<title>Metar Search</title>
+		<type>popup</type>
+		<option>location</option>
+		<optionValue>location</optionValue>
+		<option>icao</option>
+		<optionValue>icao</optionValue>
+		<description>If you set this switch you will need to enter ICAO codes into the search instead of location eg. East Midlands ICAO Code: EGNX.</description>
+		<group>metar</group>
+	</preference>
+
+	<preference name="foreCastType">
+		<title>Metar or TAF Search</title>
+		<type>popup</type>
+		<option>metar</option>
+		<optionValue>metar</optionValue>
+		<option>taf</option>
+		<optionValue>taf</optionValue>
+		<description>Choose between TAF or METAR</description>
+		<group>metar</group>
+	</preference>
+
+        <preference hidden="false" group="timepiecesize" description="Here you can set the widget Hoffset/Left X default position." name="hoffsetpref" title="Hoffset/Left X pos" type="text"/>
+
+	<preference hidden="false" group="timepiecesize" description="Here you can set the widget Yoffset/Top Y default position. Both set when you click the locking pin." name="voffsetpref" title="Yoffset/Top Y pos" type="text"/>
+
+
+
+</widget>
