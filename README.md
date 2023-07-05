@@ -122,8 +122,6 @@ Tested on :
  menubar item should appear. Widgets can then be started from the menubar or by 
  double-clicking on the KON file in the usual way.
  
-![weather-gauge-help4](https://github.com/yereverluvinunclebert/Steampunk-Weather-MkIII/assets/2788342/935f2ade-db07-4a80-9eea-f2b3baed6d48)
-
  LICENCE AGREEMENTS:
  
  Copyright 2023 Dean Beedell
