@@ -48,7 +48,9 @@ in XML form so it is easy enough to use. It is also free and does not require an
 API. The search for metar codes is performed offline using a local list of metar 
 stations in a static data file. There are currently 10,000 Metar locations and 
 so a search using a local file is much quicker than an online one.
- 
+
+![weather-gauge-help4](https://github.com/yereverluvinunclebert/Steampunk-Weather-MkIII/assets/2788342/a3bc8f1f-73bc-42cc-9c73-b643fd0457e1)
+
 The new widget also has a pop-up window that summarises weather information in 
 a text form in addition to the image display on the main gauge. 
  
