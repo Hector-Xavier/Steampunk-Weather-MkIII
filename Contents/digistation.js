@@ -1748,6 +1748,8 @@ main_timer.onTimerFired = function () {
 //=====================
 function do_the_business () {
        busyTimer.ticking=true;
+       
+       print("preferences.foreCastType.value" + preferences.foreCastType.value);
 
        if (preferences.foreCastType.value == "metar") {
           getData(preferences.icao.value);
